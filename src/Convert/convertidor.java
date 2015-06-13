@@ -17,7 +17,131 @@ public class convertidor extends javax.swing.JFrame {
     public convertidor() {
         initComponents();
     }
+    
+    /**
+     * @param numero
+     * @Metodo que devuelve el numero romano ya connvertido
+     * @return
+     */
+    public String Convertidor(int numero){
+        
+        /*Declaracion de variables*/
+            int miles;
+            int centenas;
+            int decenas;
+            int unidades;
+            String numeroRomano = "";
 
+            /*descomponemos en numero de cuatro cifras*/
+            miles = numero / 1000;
+            centenas = (numero / 100) % 10;
+            decenas = (numero / 10) % 10;
+            unidades = numero % 10;
+        
+             switch (miles) {
+                case 1:
+                    numeroRomano = numeroRomano + "M";
+                    break;
+                case 2:
+                    numeroRomano = numeroRomano + "MM";
+                    break;
+                case 3:
+                    numeroRomano = numeroRomano + "MMM";
+                    break;
+            }
+
+            switch (centenas) {
+                case 1:
+                    numeroRomano = numeroRomano + "C";
+                    break;
+                case 2:
+                    numeroRomano = numeroRomano + "CC";
+                    break;
+                case 3:
+                    numeroRomano = numeroRomano + "CCC";
+                    break;
+                case 4:
+                    numeroRomano = numeroRomano + "CD";
+                    break;
+                case 5:
+                    numeroRomano = numeroRomano + "D";
+                    break;
+                case 6:
+                    numeroRomano = numeroRomano + "DC";
+                    break;
+                case 7:
+                    numeroRomano = numeroRomano + "DCC";
+                    break;
+                case 8:
+                    numeroRomano = numeroRomano + "DCC";
+                    break;
+                case 9:
+                    numeroRomano = numeroRomano + "CM";
+                    break;
+            }
+
+            switch (decenas) {
+                case 1:
+                    numeroRomano = numeroRomano + "X";
+                    break;
+                case 2:
+                    numeroRomano = numeroRomano + "XX";
+                    break;
+                case 3:
+                    numeroRomano = numeroRomano + "XXX";
+                    break;
+                case 4:
+                    numeroRomano = numeroRomano + "XL";
+                    break;
+                case 5:
+                    numeroRomano = numeroRomano + "L";
+                    break;
+                case 6:
+                    numeroRomano = numeroRomano + "LX";
+                    break;
+                case 7:
+                    numeroRomano = numeroRomano + "LXX";
+                    break;
+                case 8:
+                    numeroRomano = numeroRomano + "LXXX";
+                    break;
+                case 9:
+                    numeroRomano = numeroRomano + "XC";
+                    break;
+            }
+              switch (unidades) {
+                case 1:
+                    numeroRomano = numeroRomano + "I";
+                    break;
+                case 2:
+                    numeroRomano = numeroRomano + "II";
+                    break;
+                case 3:
+                    numeroRomano = numeroRomano + "III";
+                    break;
+                case 4:
+                    numeroRomano = numeroRomano + "IV";
+                    break;
+                case 5:
+                    numeroRomano = numeroRomano + "V";
+                    break;
+                case 6:
+                    numeroRomano = numeroRomano + "VI";
+                    break;
+                case 7:
+                    numeroRomano = numeroRomano + "VII";
+                    break;
+                case 8:
+                    numeroRomano = numeroRomano + "VIII";
+                    break;
+                case 9:
+                    numeroRomano = numeroRomano + "IX";
+                    break;
+            } 
+              return numeroRomano;
+        }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,12 +151,38 @@ public class convertidor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jToolBar1 = new javax.swing.JToolBar();
         tempTextField = new javax.swing.JTextField();
         enteroLabel = new javax.swing.JLabel();
         convertButton = new javax.swing.JButton();
         romanoLabel = new javax.swing.JLabel();
 
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jToolBar1.setForeground(new java.awt.Color(5, 3, 2));
+        jToolBar1.setRollover(true);
+        jToolBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        jToolBar1.setOpaque(false);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Convertidor a números romanos");
+        setName(""); // NOI18N
+
+        tempTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tempTextFieldActionPerformed(evt);
+            }
+        });
 
         enteroLabel.setText("Número Entero");
 
@@ -50,20 +200,20 @@ public class convertidor extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tempTextField)
-                    .addComponent(convertButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(convertButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(romanoLabel)
                     .addComponent(enteroLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(81, 81, 81)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tempTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enteroLabel))
@@ -71,7 +221,7 @@ public class convertidor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(convertButton)
                     .addComponent(romanoLabel))
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,7 +229,23 @@ public class convertidor extends javax.swing.JFrame {
 
     private void convertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertButtonActionPerformed
         /*Metodo para convertirlo*/
+        try {
+            /*Recuperamos el texto del campo tempTextField*/
+            int numero = Integer.parseInt(tempTextField.getText());
+            
+            /*Llamada al metodo pasandole el numero dado por usuario y mostrandolo en romanoLabel*/
+            romanoLabel.setText(Convertidor(numero));
+            
+            
+        } catch (NumberFormatException e) {
+            romanoLabel.setText("Número Invalido");
+        }
+
     }//GEN-LAST:event_convertButtonActionPerformed
+
+    private void tempTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tempTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,26 +263,25 @@ public class convertidor extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(convertidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(convertidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(convertidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(convertidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new convertidor().setVisible(true);
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton convertButton;
     private javax.swing.JLabel enteroLabel;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel romanoLabel;
     private javax.swing.JTextField tempTextField;
     // End of variables declaration//GEN-END:variables
