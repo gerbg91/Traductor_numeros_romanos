@@ -157,6 +157,11 @@ public class convertidor extends javax.swing.JFrame {
         enteroLabel = new javax.swing.JLabel();
         convertButton = new javax.swing.JButton();
         romanoLabel = new javax.swing.JLabel();
+        tempTextFieldRomano = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        error = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -184,8 +189,10 @@ public class convertidor extends javax.swing.JFrame {
             }
         });
 
-        enteroLabel.setText("Número Entero");
+        enteroLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        enteroLabel.setText("Número europeo");
 
+        convertButton.setBackground(new java.awt.Color(204, 255, 204));
         convertButton.setText("Convertidor");
         convertButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,35 +200,79 @@ public class convertidor extends javax.swing.JFrame {
             }
         });
 
+        romanoLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         romanoLabel.setText("Número Romano");
+
+        tempTextFieldRomano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tempTextFieldRomanoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Convertidor de números europeos a números romanos");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Funcional de 1 a 3999");
+
+        error.setForeground(new java.awt.Color(255, 0, 0));
+        error.setText("No introduzcas números fuera de rango o letras");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tempTextField)
-                    .addComponent(convertButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(144, 144, 144)
+                .addComponent(jLabel1)
+                .addContainerGap(317, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(romanoLabel)
-                    .addComponent(enteroLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(173, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(error)
+                        .addGap(112, 112, 112))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(enteroLabel)
+                    .addComponent(romanoLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tempTextFieldRomano, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(convertButton)
+                    .addComponent(tempTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(122, 122, 122))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tempTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enteroLabel))
                 .addGap(18, 18, 18)
+                .addComponent(convertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(convertButton)
-                    .addComponent(romanoLabel))
-                .addContainerGap(158, Short.MAX_VALUE))
+                    .addComponent(tempTextFieldRomano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(romanoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addComponent(error)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1))
         );
 
         pack();
@@ -233,12 +284,16 @@ public class convertidor extends javax.swing.JFrame {
             /*Recuperamos el texto del campo tempTextField*/
             int numero = Integer.parseInt(tempTextField.getText());
             
-            /*Llamada al metodo pasandole el numero dado por usuario y mostrandolo en romanoLabel*/
-            romanoLabel.setText(Convertidor(numero));
-            
+            if(numero<= 3999 && numero>=1){
+                /*Llamada al metodo pasandole el numero dado por usuario y mostrandolo en romanoLabel*/
+                tempTextFieldRomano.setText(Convertidor(numero));
+                error.setText("");
+            }else {
+                error.setText("Número invalido, ingrese un nuevo número");
+            }
             
         } catch (NumberFormatException e) {
-            romanoLabel.setText("Número Invalido");
+            error.setText("Número invalido, ingrese un nuevo número");
         }
 
     }//GEN-LAST:event_convertButtonActionPerformed
@@ -246,6 +301,10 @@ public class convertidor extends javax.swing.JFrame {
     private void tempTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tempTextFieldActionPerformed
+
+    private void tempTextFieldRomanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempTextFieldRomanoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tempTextFieldRomanoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,9 +339,14 @@ public class convertidor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton convertButton;
     private javax.swing.JLabel enteroLabel;
+    private javax.swing.JLabel error;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel romanoLabel;
     private javax.swing.JTextField tempTextField;
+    private javax.swing.JTextField tempTextFieldRomano;
     // End of variables declaration//GEN-END:variables
 }
